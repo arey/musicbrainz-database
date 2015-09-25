@@ -14,14 +14,6 @@ This image comes with a create-database.sh shell script used to create and feed 
 
 SQL scripts are retrieved from the [MusicBrainz Github repo](https://github.com/metabrainz/musicbrainz-server/master/admin/sql).
 
-## Usage
-
-Execute SQL statements from an input SQL file:
-
-```
-$ docker run -v <path to sql>:/sql --link <mysql server container name>:mysql -it arey/mysql-client -h mysql -p <password> -D <database name> -e "source /sql/<your sql file>"
-```
-
 ## Build the image
 
 ```
@@ -29,6 +21,7 @@ docker build -t arey/musicbrainz-database .
 ```
 
 ## Run the container and import the musicbrainz data
+
 ```
 docker run -t -d -p 5432:5432 --name musicbrainz-database -e POSTGRES_USER=musicbrainz -e POSTGRES_PASSWORD=musicbrainz arey/musicbrainz-database
 ```
@@ -40,4 +33,9 @@ If you have host-based storage available for the Postgres DB files (recommended)
 docker run musicbrainz-database /create-database.sh
 ```
 
+##  Connect to the database
+
+From Java application, use the following JDBC URL: jdbc:postgresql://localhost:5432/musicbrainz and the credentials: musicbrainz / musicbrainz
+
+Note : For Windows or MacOSX users, replace localhost with the boot2docker IP.
 

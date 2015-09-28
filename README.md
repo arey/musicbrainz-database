@@ -30,7 +30,7 @@ If you have host-based storage available for the Postgres DB files (recommended)
 -v /path/to/storage/location:/var/lib/postgresql
 
 ```
-docker run musicbrainz-database /create-database.sh
+docker run -it --link musicbrainz-database:postgresql -e POSTGRES_USER=musicbrainz -e POSTGRES_PASSWORD=musicbrainz --rm arey/musicbrainz-database /create-database.sh
 ```
 
 ##  Connect to the database

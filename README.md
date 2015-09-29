@@ -33,6 +33,14 @@ If you have host-based storage available for the Postgres DB files (recommended)
 docker run -it --link musicbrainz-database:postgresql --env-file=postgres.env --rm arey/musicbrainz-database /create-database.sh
 ```
 
+## Test it
+
+In order to test your database installation, execute the below SQL query:
+```
+docker run -it --link musicbrainz-database:postgresql --rm arey/musicbrainz-database sh -c 'exec psql -h postgresql -d musicbrainz -U musicbrainz -a -c "SELECT COUNT(*) FROM artist"'
+```
+Enter the 'musicbrainz' password. A minimum number of 995899 artists should be counted.
+
 ##  Connect to the database
 
 From Java application, use the following JDBC URL: jdbc:postgresql://localhost:5432/musicbrainz and the credentials: musicbrainz / musicbrainz

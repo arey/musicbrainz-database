@@ -16,7 +16,10 @@ SQL scripts are retrieved from the [MusicBrainz Github repo](https://github.com/
 
 ## Build the image
 
+The arey/musicbrainz-database image is published to Docker Hub. Docker will automatically download it. If you prefer to build it manually after retrieving source code from GitHub:
 ```
+git clone https://github.com/arey/musicbrainz-database.git
+cd musicbrainz-database
 docker build -t arey/musicbrainz-database .
 ```
 

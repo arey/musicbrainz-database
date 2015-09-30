@@ -23,14 +23,14 @@ docker build -t arey/musicbrainz-database .
 ## Run the container and import the musicbrainz data
 
 ```
-docker run -t -d -p 5432:5432 --name musicbrainz-database --env-file=postgres.env arey/musicbrainz-database
+docker run -t -d -p 5432:5432 --name musicbrainz-database -e POSTGRES_USER=musicbrainz -e POSTGRES_PASSWORD=musicbrainz arey/musicbrainz-database
 ```
 
 If you have host-based storage available for the Postgres DB files (recommended), adjust the above base command with a this parameter:
 -v /path/to/storage/location:/var/lib/postgresql
 
 ```
-docker run -it --link musicbrainz-database:postgresql --env-file=postgres.env --rm arey/musicbrainz-database /create-database.sh
+docker run -it --link musicbrainz-database:postgresql -e POSTGRES_USER=musicbrainz -e POSTGRES_PASSWORD=musicbrainz --rm arey/musicbrainz-database /create-database.sh
 ```
 
 ## Test it

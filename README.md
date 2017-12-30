@@ -2,7 +2,7 @@
 
 [![Docker Hub](https://img.shields.io/badge/docker-ready-blue.svg)](https://registry.hub.docker.com/u/arey/musicbrainz-database/) 
 
-Based on the official Postgres image, this docker image installs a PostgreSQL 9.4 wilh all librairies required by the MusicBrainz database.
+Based on the official Postgres image, this docker image installs a PostgreSQL 9.5.10 wilh all librairies required by the MusicBrainz database.
 
 This image comes with a create-database.sh shell script used to create and feed the database:
 
@@ -12,7 +12,7 @@ This image comes with a create-database.sh shell script used to create and feed 
 * Add index and primary keys
 
 
-SQL scripts are retrieved from the [MusicBrainz Github repo](https://github.com/metabrainz/musicbrainz-server/master/admin/sql).
+SQL scripts are retrieved from the [MusicBrainz Github repo](https://github.com/metabrainz/musicbrainz-server/tree/master/admin/sql).
 
 ## Build the image
 
@@ -48,5 +48,5 @@ Enter the 'musicbrainz' password. A minimum number of 995899 artists should be c
 
 From Java application, use the following JDBC URL: jdbc:postgresql://localhost:5432/musicbrainz and the credentials: musicbrainz / musicbrainz
 
-Note : For Windows or MacOSX users, replace localhost with the boot2docker IP.
+Note: For Microsoft Windows or MacOS users, please replace localhost with the boot2docker IP.
 
